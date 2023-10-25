@@ -1,0 +1,22 @@
+img {
+    width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.section {
+    padding-top: 20px;
+}
+
+.section__header {
+    text-align: center;
+
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Roboto";
+}

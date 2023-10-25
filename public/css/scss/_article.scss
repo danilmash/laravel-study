@@ -1,0 +1,58 @@
+.article {
+    
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        border: aqua 2px solid;
+        padding: 15px;
+        font-family: "Roboto";
+    
+        margin-top: 15px;
+    
+        @media (max-width:701px) {
+            flex-direction: column;
+        }
+    }
+
+    &__link {
+        display: block;
+        min-width: 300px;
+        @media (max-width:701px) {
+            width: 300px;
+            margin: 0 auto;
+        }
+    }
+
+    &__image {
+        
+    }
+
+    &__text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    &__desc {
+        min-width: 240px;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    &__date {
+        font-weight: 500;
+        font-size: 1.3rem;
+        margin-top: auto;
+        
+        @media (max-width:890px) {
+            margin-top: 15px;
+        }
+    }
+
+}

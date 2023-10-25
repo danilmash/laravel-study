@@ -1,0 +1,141 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.section {
+  padding-top: 20px;
+}
+
+.section__header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: "Roboto";
+}
+
+.article__container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  border: aqua 2px solid;
+  padding: 15px;
+  font-family: "Roboto";
+  margin-top: 15px;
+}
+@media (max-width: 701px) {
+  .article__container {
+    flex-direction: column;
+  }
+}
+.article__link {
+  display: block;
+  min-width: 300px;
+}
+@media (max-width: 701px) {
+  .article__link {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
+.article__text {
+  display: flex;
+  flex-direction: column;
+}
+.article__header {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.article__desc {
+  min-width: 240px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+.article__date {
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: auto;
+}
+@media (max-width: 890px) {
+  .article__date {
+    margin-top: 15px;
+  }
+}
+
+.gallery {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+.gallery__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.gallery__image-article {
+  font-family: "Robot";
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
