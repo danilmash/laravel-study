@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::get('/contact', function () {
     return view('contact', compact('contactData'));
 })->name('contact');
 
-
-
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+
+Route::get('/signin', [AuthController::class, 'create'])->name('signin');
+Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
