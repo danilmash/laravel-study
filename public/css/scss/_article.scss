@@ -1,19 +1,15 @@
 .article {
-    
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: aqua 2px solid;
+    padding: 15px;
+    font-family: "Roboto";
 
-    &__container {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        border: aqua 2px solid;
-        padding: 15px;
-        font-family: "Roboto";
-    
-        margin-top: 15px;
-    
-        @media (max-width:701px) {
-            flex-direction: column;
-        }
+    margin-top: 15px;
+
+    @media (max-width:701px) {
+        flex-direction: column;
     }
 
     &__link {

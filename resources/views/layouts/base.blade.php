@@ -13,6 +13,7 @@
             <li><a href="{{ route('home')}}">Главная</a></li>
             <li><a href="{{ route('about') }}">О нас</a></li>
             <li><a href="{{ route('contact') }}">Контакты</a></li>
+            <li><a href="{{ route('articles') }}">Статьи</a></li>
         </div>
     </header>
     <main class="content">

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,8 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
 Route::get('/signin', [AuthController::class, 'create'])->name('signin');
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
+
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+Route::post('/articles', [ArticleController::class, 'create'])->name('articles.create');
+
+

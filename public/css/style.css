@@ -74,7 +74,15 @@ img {
   font-family: "Roboto";
 }
 
-.article__container {
+.section__text {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Roboto";
+  margin-top: 20px;
+}
+
+.article {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -84,7 +92,7 @@ img {
   margin-top: 15px;
 }
 @media (max-width: 701px) {
-  .article__container {
+  .article {
     flex-direction: column;
   }
 }
