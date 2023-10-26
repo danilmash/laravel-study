@@ -40,5 +40,6 @@ Route::post('/registration', [AuthController::class, 'registration'])->name('reg
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 Route::post('/articles', [ArticleController::class, 'create'])->name('articles.create');
-
-
+Route::get('/articles/create', function () {
+    return view('articles.create');
+})->name('articles.create-form');
