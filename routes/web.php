@@ -43,3 +43,7 @@ Route::post('/articles', [ArticleController::class, 'create'])->name('articles.c
 Route::get('/articles/create', function () {
     return view('articles.create');
 })->name('articles.create-form');
+Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::put('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+Route::delete('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+
