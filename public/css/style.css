@@ -63,6 +63,14 @@ img {
   margin: 0 auto;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  font-family: "Roboto";
+}
+
 .section {
   padding-top: 20px;
 }
@@ -82,7 +90,19 @@ img {
   margin-top: 20px;
 }
 
+.error {
+  color: red;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  list-style-type: none;
+}
+
 .article {
+  position: relative;
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -128,6 +148,69 @@ img {
   .article__date {
     margin-top: 15px;
   }
+}
+.article__delete-button {
+  position: absolute;
+  background: none;
+  outline: none;
+  border: none;
+  top: 15px;
+  right: 15px;
+  color: red;
+  cursor: pointer;
+}
+.article__edit-link {
+  position: absolute;
+  background: none;
+  outline: none;
+  border: none;
+  bottom: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.article-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-form__label {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.article-form__input {
+  font-size: 1.1rem;
+  margin-top: 5px;
+  width: 100%;
+  max-width: 600px;
+}
+.article-form__textarea {
+  resize: none;
+  margin-top: 5px;
+  height: 100px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 1.1rem;
+}
+.article-form__submit-button {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 50px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: none;
+  background-color: rgb(112, 230, 112);
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 1.1rem;
+}
+.article-form__submit-button:hover {
+  background-color: rgb(82, 207, 82);
 }
 
 .gallery {

@@ -39,11 +39,7 @@ Route::get('/signin', [AuthController::class, 'create'])->name('signin');
 Route::post('/registration', [AuthController::class, 'registration'])->name('registration');
 
 Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
-Route::post('/articles', [ArticleController::class, 'create'])->name('articles.create');
-Route::get('/articles/create', function () {
-    return view('articles.create');
-})->name('articles.create-form');
-Route::get('/articles/{id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
-Route::put('/articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
-Route::delete('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
-
+Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+Route::get('/articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');

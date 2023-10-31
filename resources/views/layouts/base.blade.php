@@ -10,17 +10,19 @@
 <body>
     <header>
         <div class="wrapper">
-            <li><a href="{{ route('home')}}">Главная</a></li>
-            <li><a href="{{ route('about') }}">О нас</a></li>
-            <li><a href="{{ route('contact') }}">Контакты</a></li>
-            <li><a href="{{ route('articles') }}">Статьи</a></li>
+            <ul class="menu">
+                <li class="menu__list-item"><a href="{{ route('home')}}" class="menu__link link">Главная</a></li>
+                <li class="menu__list-item"><a href="{{ route('about') }}" class="menu__link link">О нас</a></li>
+                <li class="menu__list-item"><a href="{{ route('contact') }}" class="menu__link link">Контакты</a></li>
+                <li class="menu__list-item"><a href="{{ route('articles') }}" class="menu__link link">Статьи</a></li>
+            </ul>
         </div>
     </header>
     <main class="content">
         @yield('content')
     </main>
     <footer>
-        <p style="text-align:center; margin-top:200px">Машенцев Данил Николаевич, группы 221-321</p>
+        <p>Машенцев Данил Николаевич, группы 221-321</p>
     </footer>
 </body>
 </html>

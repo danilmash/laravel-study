@@ -14,9 +14,8 @@ class ArticleController extends Controller
         return view('articles.articles_main', ['articles' => $articles]);
     }
 
-    public function create(Request $request)
-    {
-        $data = $request->validate([
+    public function store() {
+        $data = request() -> validate([
             'title' => 'required|string|max:255',
             'content' => 'required|string',
         ]);
@@ -26,30 +25,26 @@ class ArticleController extends Controller
         return redirect()->route('articles');
     }
 
-    public function edit($id)
-    {
-        $article = Article::find($id);
-        return view('articles.edit', ['article' => $article]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        $data = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
-
-        $article = Article::find($id);
-        $article->update($data);
+    public function destroy(Article $article) {
+        
+        $article->delete();
 
         return redirect()->route('articles');
     }
 
-    public function destroy($id)
-    {
-        $article = Article::find($id);
-        $article->delete();
+    public function edit(Article $article) {
+        
+        return view("articles.edit", compact("article"));
+    }
 
+    public function update(Article $article) {
+        request() -> validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+        $article->title = request() -> get('title', '');
+        $article->content = request() -> get('content', '');
+        $article->save();
         return redirect()->route('articles');
     }
 }
