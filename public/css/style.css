@@ -104,8 +104,8 @@ body {
 .article {
   position: relative;
   display: flex;
-  flex-direction: row;
-  gap: 20px;
+  box-sizing: border-box;
+  flex-direction: column;
   border: aqua 2px solid;
   padding: 15px;
   font-family: "Roboto";
@@ -158,18 +158,75 @@ body {
   right: 15px;
   color: red;
   cursor: pointer;
+  font-size: 1.2rem;
 }
-.article__edit-link {
+.article__comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.article__comment-textarea {
+  resize: none;
+  max-width: 600px;
+  height: 40px;
+  font-family: "Roboto";
+  font-size: 1rem;
+}
+.article__comment-submit {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 40px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border: none;
+  background-color: rgb(112, 230, 112);
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 1.1rem;
+}
+.article__comment-submit:hover {
+  background-color: rgb(82, 207, 82);
+}
+.article__comments-list {
+  margin-top: 20px;
+  border-left: 2px solid rgb(201, 201, 201);
+}
+.article__comments-heading {
+  margin-top: 10px;
+  font-size: 1.7rem;
+  padding-left: 10px;
+}
+.article__comment {
+  position: relative;
+}
+.article__comment::before {
+  content: "__";
+  position: absolute;
+  color: rgb(201, 201, 201);
+  font-size: 1.4rem;
+  line-height: 0;
+  top: 0.2rem;
+  left: -32px;
+  top: 10px;
+}
+
+.edit-link {
   position: absolute;
   background: none;
   outline: none;
   border: none;
-  bottom: 15px;
-  right: 15px;
+  top: 15px;
+  right: 40px;
   width: 20px;
   height: 20px;
   color: black;
   cursor: pointer;
+}
+
+.link-to-article {
+  text-decoration: none;
+  color: black;
 }
 
 .article-form {
@@ -211,6 +268,17 @@ body {
 }
 .article-form__submit-button:hover {
   background-color: rgb(82, 207, 82);
+}
+
+.comment {
+  margin-left: 30px;
+  border: 1px solid rgb(230, 230, 230);
+  margin-top: 10px;
+  font-size: 1.4rem;
+  padding: 10px;
+}
+.comment__edit-link {
+  top: 10px;
 }
 
 .gallery {

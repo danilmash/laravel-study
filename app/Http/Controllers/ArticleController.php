@@ -25,16 +25,20 @@ class ArticleController extends Controller
         return redirect()->route('articles');
     }
 
+    public function show(Article $article) {
+        return view("articles.article", compact("article"));
+    }
+
     public function destroy(Article $article) {
-        
+
         $article->delete();
 
         return redirect()->route('articles');
     }
 
     public function edit(Article $article) {
-        
-        return view("articles.edit", compact("article"));
+
+        return view("articles.edit", compact("comment"));
     }
 
     public function update(Article $article) {
