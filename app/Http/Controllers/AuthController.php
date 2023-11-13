@@ -4,28 +4,61 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Models\User;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    public function create()
-    {
-        return view('auth.signin');
+    public function showRegistrationForm() {
+        return view("auth.sign_up");
     }
 
-    public function registration(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
+    public function register(Request $request) {
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|',
-            'password' => 'required|string|min:6',
+            'email' => 'required|string|email|unique:users|max:255',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
+        $user = User::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'password' => bcrypt($validatedData['password']),
+        ]);
+
+        return redirect()->route('login.form');
+    }
+
+    public function showLoginForm() {
+        return view('auth.sign_in');
+    }
+
+    public function login(Request $request) {
+        $credentials = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->route('articles');
         }
 
-        // Дополнительная логика регистрации, например, создание пользователя и вход
+        return back()->withErrors([
+            'error' => 'The provided credentials do not match our records.',
+        ]);
+    }
 
-        return response()->json(['message' => 'Successful registration'], 200);
+    public function logout(Request $request): RedirectResponse {
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

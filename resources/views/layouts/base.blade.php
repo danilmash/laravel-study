@@ -15,6 +15,11 @@
                 <li class="menu__list-item"><a href="{{ route('about') }}" class="menu__link link">О нас</a></li>
                 <li class="menu__list-item"><a href="{{ route('contact') }}" class="menu__link link">Контакты</a></li>
                 <li class="menu__list-item"><a href="{{ route('articles') }}" class="menu__link link">Статьи</a></li>
+                <li class="menu__list-item">
+                    <form action="{{ route('logout') }}" method="post">@csrf
+                    <button class="menu__link link">Выйти</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </header>
