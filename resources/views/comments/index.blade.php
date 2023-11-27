@@ -17,14 +17,14 @@
         <th scope="row">{{$comment->created_at}}</th>
         @foreach($articles as $article)
         @if ($comment->article_id == $article->id)
-        <td>{{$article->title}}</td>
+        <td><a href="{{route('articles.show', $article)}}">{{$article->title}}</td>
         @endif
         @endforeach
         <td>{{$comment->content}}</td>
         @if($comment->accept == NULL && $comment->accept == 0)
-        <td><a href="{{ route('comments.accept', $comment) }}">Accept</a></td>
+            <td><a href="{{ route('comments.accept', $comment) }}">Accept</a></td>
         @else
-        <td><a href="{{ route('comments.reject', $comment) }}">Reject</a></td>
+            <td><a href="{{ route('comments.reject', $comment) }}">Reject</a></td>
         @endif
         </tr>
     @endforeach

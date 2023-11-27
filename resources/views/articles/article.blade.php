@@ -1,6 +1,6 @@
 @extends('layouts.base')
 
-@section('title', 'Редактироваие статьи')
+@section('title', 'Просмотр статьи')
 
 @section('content')
 
