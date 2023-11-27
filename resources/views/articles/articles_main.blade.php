@@ -5,29 +5,13 @@
 @section('content')
     <section class="articles-section section">
         <div class="wrapper">
-            <h2 class="section__header">Статьи</h2>
-            <form  class="article-form" action="{{ route('articles.store') }}" method="post">
-                @csrf
-                <label class="article-form__label" for="title">Заголовок</label>
-                <input class="article-form__input" type="text" name="title">
-                @error('title')
-                <p class="error" >{{ $message }}</p>
-                @enderror
-                <label class="article-form__label" for="content">Текст</label>
-                <textarea class="article-form__textarea" type="text" name="content" maxlength="400"></textarea>
-                @error('content')
-                <p class="error">{{ $message }}</p>
-                @enderror
-                <button class="article-form__submit-button" type="submit">Опубликовать</button>
-            </form>
-
-
             @foreach ($articles as $article)
                     <a href="{{ route('articles.show', $article) }}" class="link-to-article">
                         <div class="article" href>
                             <div class="article__text">
                                 <h3 class="article__header">{{ $article->title }}</h3>
                                 <p class="article__desc">{{ $article->content }}</p>
+                                @can('update', $article)
                                 <form  method="post" action="{{ route('articles.destroy',  $article)}}">
                                     @csrf
                                     @method("delete")
@@ -42,6 +26,7 @@
                                     <path opacity="0.1" d="M18.556 8.90942L7.09967 20.4114C6.72438 20.7882 6.21446 21 5.68265 21H4.00383C3.44943 21 3 20.5466 3 19.9922V18.2987C3 17.7696 3.20962 17.2621 3.58297 16.8873L15.0647 5.35974C15.0742 5.4062 15.0969 5.45049 15.1329 5.48653L18.5506 8.90426C18.5524 8.90601 18.5542 8.90773 18.556 8.90942Z" fill="currentColor"/>
                                     </svg>
                                 </a>
+                                @endcan
                             </div>
                         </div>
                     </a>

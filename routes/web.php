@@ -48,6 +48,7 @@ Route::middleware(['auth:sanctum', 'web'])->group(function () {
     Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 
     Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
     Route::get('/articles/{article}', [ArticleController::class, 'show'])->name('articles.show');
     Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
     Route::delete('/articles/{article}', [ArticleController::class, 'destroy'])->name('articles.destroy');
@@ -58,5 +59,7 @@ Route::middleware(['auth:sanctum', 'web'])->group(function () {
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy');
     Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
     Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
-
+    Route::get('/comments', [CommentController::class, 'index'])->name('comments.get');
+    Route::get('accept/{comment}', [CommentController::class, 'accept'])->name('comments.accept');
+    Route::get('reject/{comment}', [CommentController::class, 'reject'])->name('comments.reject');
 });

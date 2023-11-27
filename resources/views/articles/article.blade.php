@@ -33,10 +33,20 @@
         </form>
         <div class="article__comments-list">
             <h4 class="article__comments-heading">Комментарии</h4>
-            @foreach ($article -> comments as $comment)
-
+            @isset($res)
+            @if ($res)
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                     </button>
+                    Комментарий успешно добавлен и отправлен на модерацию.
+                </div>
+            @endif
+            @endisset
+            @foreach ($comments as $comment)
                 <div class="article__comment comment">
                     <p class="comment__content">{{ $comment -> content}}</p>
+                    @can('comment', $comment)
                     <a class="comment__edit-link edit-link" href="{{ route('comments.edit', $comment, $article)}}" >
                         @csrf
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,8 +56,17 @@
                         <path opacity="0.1" d="M18.556 8.90942L7.09967 20.4114C6.72438 20.7882 6.21446 21 5.68265 21H4.00383C3.44943 21 3 20.5466 3 19.9922V18.2987C3 17.7696 3.20962 17.2621 3.58297 16.8873L15.0647 5.35974C15.0742 5.4062 15.0969 5.45049 15.1329 5.48653L18.5506 8.90426C18.5524 8.90601 18.5542 8.90773 18.556 8.90942Z" fill="currentColor"/>
                         </svg>
                     </a>
+                    <form method="post" action="{{ route('comments.destroy',  $comment)}}">
+                        @csrf
+                        @method("delete")
+                        <button class="comment__delete-button" type="submit">X</button>
+                    </form>
+                    @endcan
                 </div>
             @endforeach
+            <div style="margin: 20px auto; width:fit-content">
+                {{$comments->links()}}
+            </div>
         </div>
     </div>
 </div>
